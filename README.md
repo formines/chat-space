@@ -21,19 +21,31 @@ Things you may want to cover:
 
 * Deployment instructions
 
+
 ## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|index: true, null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 |body|string|
 |image|string|
 
 ### Association
-- has_many :users, through: menbers
-- has_many :menbers
 - belongs_to :user
+
+
+## groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string| null: false|
+
+### Association
+- has_many :users, through: members
+- has_many :messages
+- has_many :members
+
 
 
 ## membersテーブル
@@ -47,6 +59,7 @@ Things you may want to cover:
 - belongs_to :group
 - belongs_to :user
 
+
 ## usersテーブル
 
 |Column|Type|Options|
@@ -55,7 +68,7 @@ Things you may want to cover:
 |email|string|null: false|
 
 ### Association
-- has_many :groups, through: menbers
+- has_many :groups, through: members
 - has_many :messages
 - has_many :menbers
 
