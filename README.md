@@ -25,22 +25,22 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|integer|index: true, null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-|body|text|
+|body|string|
 |image|string|
 
 ### Association
-- has_many :group
-- has_many :user
-
+- has_many :users, through: menbers
+- has_many :menbers
+- belongs_to :user
 
 
 ## membersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|integer|index: true, null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -51,11 +51,12 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
+|name|string|index: true, null: false, foreign_key: true|
 |email|string|null: false|
 
 ### Association
-- has_many :group
-- has_many :user
+- has_many :groups, through: menbers
+- has_many :messages
+- has_many :menbers
 
 * ...
