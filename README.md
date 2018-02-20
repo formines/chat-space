@@ -6,8 +6,8 @@
 |------|----|-------|
 |body|string|
 |image|string|
-|user_id|integer|references, foreign_key: true|
-|group_id|integer|references, foreign_key: true|
+|user_id|references|foreign_key: true|
+|group_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -31,8 +31,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|index: true, references, foreign_key: true|
-|group_id|integer|references, foreign_key: true|
+|user_id|references|index: true, foreign_key: true|
+|group_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :group
