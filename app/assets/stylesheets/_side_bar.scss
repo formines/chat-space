@@ -15,7 +15,6 @@
        font-weight: bold;
        color: #FFFFFF;
       }
-
      .header_lists {
        display: inline-block;
        float: right;
@@ -25,12 +24,28 @@
            color: white;
            font-size: 15px;
            float: right;
-
         }   
        } 
      }
     } 
   } 
+  .groups {
+    background-color: #2f3e51;
+    height: calc(100vh - 100px);
+    padding: 0 20px;
+    .group {
+     padding: 20px 0 40px;
+     .group_name {
+      font-size: 15px;
+      color: #FFFFFF
+      }
+     .group_message {
+      font-size: 11px;
+      color: #FFFFFF  
+     }  
+    }  
+  }
+
 } 
 
 

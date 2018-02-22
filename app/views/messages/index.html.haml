@@ -10,7 +10,15 @@
         %li.list    
           = link_to '/users/groups[:id]/edit' do
             = fa_icon 'cog' , class: 'icon'  
-    .group
+    .groups
+      .group
+        = link_to '/groups/message[:id]/messages' do
+          .group_name
+            sample
+          .group_message
+            Goodbye world
+              
+
                 
               
 
