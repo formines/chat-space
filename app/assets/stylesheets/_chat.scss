@@ -1,5 +1,6 @@
 .chat {
    width: calc(100% - 300px);
+   position: relative;
    .chat_header {
     height: 100px;
     padding: 0 35px;
@@ -35,6 +36,7 @@
    background-color: #FAFAFA;
    height: calc(100vh - 100px - 90px);
    padding: 46px 40px 0;
+   overflow: scroll;
    .message {
    	margin-bottom: 40px;
    	.message_up {
@@ -59,7 +61,46 @@
    	 }	
    	}
    }	
-  }   	    		
+  }
+  .form {	
+   background-color: #DDDDDD;
+   padding: 20px 50px 20px 40px;
+   height: 90px;
+   width: 100%;
+   box-sizing: border-box;
+   bottom: 0;
+   position: absolute;
+   .form_message {
+   	float: left;
+   	height: 50px;
+   	padding: 0 10px;
+   	width: calc(100% - 150px);
+   	font-size: 16px;
+   	color: #434A54;
+    box-sizing: border-box;
+    border: none;
+   }	
+   .from_mask { 
+   	background: #fff;
+   	float: left;
+   	height: 50px;
+   	padding-right: 10px;
+    .form_mask_image {
+     font-size: 20px;
+     line-height: 50px;
+    }
+   }  
+   .form_submit{
+    border: none;
+    background-color: #38AEF0;
+    color: #FFF;
+    float: right;
+    font-size: 16px;
+    height: 50px;
+    margin-left: 15px;
+    padding: 0 30px;
+   }   	
+ }
 }
 
 
