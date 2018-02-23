@@ -1,0 +1,30 @@
+.messages_main {
+   background-color: #FAFAFA;
+   height: calc(100vh - 100px - 90px);
+   padding: 46px 40px 0;
+   overflow: scroll;
+   .message {
+   	margin-bottom: 40px;
+   	.message_up {
+     display: flex;
+     .up_name {
+      color: #434a54;
+      font-size: 16px;
+      font-weight: bold;	
+     }
+     .up_data {
+      color: #999999;
+      font-size: 12px;
+      padding-left: 10px;	
+     }		
+   	}
+   	.message_down {
+   	 margin-top: 10px;
+   	 .down_content {
+   	  color: #434A54;
+   	  font-size: 14px;
+   	  margin-bottom: 10px;	
+   	 }	
+   	}
+  }	
+}
