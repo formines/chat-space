@@ -47,7 +47,7 @@
         %input{:name => "utf8", :type => "hidden", :value => "✓"}/
         %input{:name => "authenticity_token", :type => "hidden", :value => "b6+EH8u1dsV67yCm/YH5b3o7w9ffFLrLOI9f/VIFh8rsZIJ837zJvUK2VnBpjqTyHluDZItL8bxUy8GTiuRgog=="}/
         %input#message_content.form_message.js-content{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-        .from_mask
+        .form_mask
           %label.form_mask_image{:for => "message_image"}
             = fa_icon 'picture-o' , class: 'icon'
         %input.form_submit{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/  
