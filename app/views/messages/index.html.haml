@@ -2,81 +2,23 @@
   .notice
     グループを作成しました
 .main
-  .side-bar
-    .header 
-      %h3.header_name  
-        seo
-      %ul.header_lists
-        %li.list
-          = link_to '/groups/new' do
-            = fa_icon 'pencil-square-o' , class: 'icon'
-        %li.list    
-          = link_to '/users/groups[:id]/edit' do
-            = fa_icon 'cog' , class: 'icon'  
-    .groups
-      .group
-        = link_to '/groups/message[:id]/messages' do
-          .group_name
-            sample
-          .group_message
-            Goodbye world
-
+  = render "side-bar"
   .chat
     .chat_header
       .left-header
         .left-header_title
           sample
         %ul.left-header_members
-          
           Member :
-          
           %li.member
             omi  kaoru
       .right-header_button
         Edit
-
-    .messages_main
-      .message
-        .message_up
-          .up_name
-            近江
-          .up_data
-            2018/02/21 20:00
-        .message_down
-          %p.down_content
-            こんばんは
+    = render "messages_main"     
     .form
-      %form#new_message.form_1{"accept-charset" => "UTF-8", :action => "groups", :enctype => "multipart/form-data", :method => "post"}
-        %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-        %input{:name => "authenticity_token", :type => "hidden", :value => "b6+EH8u1dsV67yCm/YH5b3o7w9ffFLrLOI9f/VIFh8rsZIJ837zJvUK2VnBpjqTyHluDZItL8bxUy8GTiuRgog=="}/
-        %input#message_content.form_message.js-content{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+      %form#new_message.form_1
+        %input.form_message(placeholder="type a message" type="text")
         .form_mask
-          %label.form_mask_image{:for => "message_image"}
+          %label.form_mask_image
             = fa_icon 'picture-o' , class: 'icon'
-        %input.form_submit{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/  
-
-
-
-
-
-
-
-                
-              
-
-               
-
-              
-              
-
-
-           
-
-
-
-
-
-
-    
-
-
+        %input.form_submit(type="submit" value ="Send")  
