@@ -1,6 +1,3 @@
-.notification
-  .notice
-    グループを作成しました
 .main
   = render "shared/side_bar"
   .chat
@@ -14,11 +11,13 @@
             omi  kaoru
       .right-header_button
         Edit
-    = render "messages_main"     
+    .messages    
+      = render @messages     
     .form
-      %form#new_message.form_1
-        %input.form_message(placeholder="type a message" type="text")
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form_message', placeholder: 'type a message' 
         .form_mask
-          %label.form_mask_image
-            = fa_icon 'picture-o' , class: 'icon'
-        %input.form_submit(type="submit" value ="Send")  
+          = f.label :image, class: 'form_mask_image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'  
+        = f.submit 'Send', class: 'form_submit'    
