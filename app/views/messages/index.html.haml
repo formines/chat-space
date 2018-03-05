@@ -11,11 +11,11 @@
             omi  kaoru
       .right-header_button
         Edit
-    .messages    
+    .messages   
       = render @messages     
     .form
       = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form_message', placeholder: 'type a message' 
+        = f.text_field :content, class: 'form_message', placeholder: 'type a message'
         .form_mask
           = f.label :image, class: 'form_mask_image' do
             = fa_icon 'picture-o', class: 'icon'
