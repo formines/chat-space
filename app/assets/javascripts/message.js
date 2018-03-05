@@ -1,10 +1,5 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   function buildHTML(data){
-    if(data.text){
-     var text = data.text
-    }else{
-     var text = ""
-    }
     if(data.image){
      var image = data.image  
     }else{
@@ -21,7 +16,7 @@ $(function(){
                   </div>
                   <div class ="message_down">
                     <p class ="down_content">
-                      ${text}
+                      ${data.text}
                     </p>  
                     <img class ="down-content_image" src= ${image}>
                   </div>              
@@ -46,6 +41,7 @@ $(function(){
       var targetTop = $('.messages')[0].scrollHeight;
       $('.messages').animate({scrollTop: targetTop}, 3000);
       $('.form_message').val('');
+      $('.hidden').val('');
     })
     .fail(function(){
       alert('error');
