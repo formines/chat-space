@@ -44,7 +44,7 @@ $(document).on('turbolinks:load', function() {
       $('.hidden').val('');
     })
     .fail(function(){
-      alert('error');
+      alert('メッセージを入力してください！');
     })
     return false;  	
   });
