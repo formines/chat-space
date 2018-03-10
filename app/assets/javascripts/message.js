@@ -52,7 +52,6 @@ $(document).on('turbolinks:load', function() {
     var interval = setInterval(function() {
       if (window.location.href.match(/\/groups\/\d+\/messages/)) {
         var message_id = $('.message:last').data('id')
-        console.log(message_id);
     $.ajax({
       url: location.href,
       type: 'GET',
@@ -62,7 +61,7 @@ $(document).on('turbolinks:load', function() {
     .done(function(last_message) {
         var id = $('.message:last').data('id');
         var html = ''
-        if(last_message.id > id ) {
+        if (last_message.id > id ) {
         var html = buildHTML(last_message);
         $('.messages').append(html);
         var targetTop = $('.messages')[0].scrollHeight;
@@ -75,4 +74,5 @@ $(document).on('turbolinks:load', function() {
     } else {  
      clearInterval(interval);
     }}, 5000); 
-});   
+});
+   
