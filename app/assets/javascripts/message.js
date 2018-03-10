@@ -1,22 +1,22 @@
 $(document).on('turbolinks:load', function() {
-  function buildHTML(data){
-    if(data.image){
-     var image = data.image  
+  function buildHTML(message){
+    if(message.image){
+     var image = message.image  
     }else{
-     var image = "" 
+     var image = ""
     }           
-    var html = `<div class ="message">
+    var html = `<div class ="message" data-id=${message.id}>
                   <div class ="message_up">
                     <div class ="up_name">
-                      ${data.user_name}  
+                      ${message.name}  
                     </div>
                     <div class = "up_data">
-                      ${data.created_at}
+                      ${message.created_at}
                     </div>  
                   </div>
                   <div class ="message_down">
                     <p class ="down_content">
-                      ${data.text}
+                      ${message.text}
                     </p>  
                     <img class ="down-content_image" src= ${image}>
                   </div>              
@@ -39,7 +39,7 @@ $(document).on('turbolinks:load', function() {
       var html = buildHTML(data);
       $('.messages').append(html);
       var targetTop = $('.messages')[0].scrollHeight;
-      $('.messages').animate({scrollTop: targetTop}, 3000);
+      $('.messages').animate({scrollTop: targetTop}, 5000);
       $('.form_message').val('');
       $('.hidden').val('');
     })
@@ -48,4 +48,31 @@ $(document).on('turbolinks:load', function() {
     })
     return false;  	
   });
-});
+
+    var interval = setInterval(function() {
+      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+        var message_id = $('.message:last').data('id')
+        console.log(message_id);
+    $.ajax({
+      url: location.href,
+      type: 'GET',
+      data: { id: message_id },
+      dataType: 'json'
+    })
+    .done(function(last_message) {
+        var id = $('.message:last').data('id');
+        var html = ''
+        if(last_message.id > id ) {
+        var html = buildHTML(last_message);
+        $('.messages').append(html);
+        var targetTop = $('.messages')[0].scrollHeight;
+        $('.messages').animate({scrollTop: targetTop}, 5000);    
+      }
+    })
+    .fail(function(){ 
+      alert("自動更新に失敗しました"); 
+     });
+    } else {  
+     clearInterval(interval);
+    }}, 5000); 
+});   
